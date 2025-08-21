@@ -1,7 +1,7 @@
 /*
 ===========================================================
   JavaScript Notes - Dates (Lecture 7)
-  Author: Yash Ghule
+  
   Topic: Working with Date and Time in JavaScript
 ===========================================================
 
