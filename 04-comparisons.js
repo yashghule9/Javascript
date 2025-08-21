@@ -1,7 +1,7 @@
 /*
 ===========================================================
   JavaScript Notes - Comparisons & Equality (Lecture 4)
-  Author: Yash Ghule
+
   Topic: Comparison operators, == vs ===, pitfalls of null/undefined
 ===========================================================
 
