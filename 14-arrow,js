@@ -1,0 +1,99 @@
+/*
+===========================================================
+  JavaScript Notes - Objects, This Keyword & Arrow Functions (Lecture X)
+  Author: Yash Ghule
+  Topic: Understanding 'this' in Methods, Arrow Functions, and Function Expressions
+===========================================================
+
+📌 Why 'this' and functions matter?
+- 'this' context varies between regular functions and arrow functions.
+- Arrow functions do not have their own 'this'; they inherit from the surrounding scope.
+- Understanding this helps avoid bugs in methods and callbacks.
+
+===========================================================
+*/
+
+// Object with method using 'this'
+const user = {
+    username: "hitesh",
+    price: 999,
+
+    welcomeMessage: function() {
+        console.log(`${this.username}, welcome to website`);
+        console.log(this);  // 'this' refers to the user object
+    }
+};
+
+// user.welcomeMessage();
+// user.username = "sam";
+// user.welcomeMessage();
+
+
+// Global scope 'this'
+// console.log(this);  // In browsers: Window object; in Node: global or {}
+
+
+// Function declaration 'this' behavior
+// function chai() {
+//     let username = "hitesh";
+//     console.log(this.username);  // 'this' depends on call context
+// }
+// chai();
+
+
+// Function expression - regular function and 'this'
+// const chai = function () {
+//     let username = "hitesh";
+//     console.log(this.username);  // 'this' depends on call context
+// };
+
+// Arrow function 'this' behavior - lexical binding
+const chai = () => {
+    let username = "hitesh";
+    console.log(this);  // 'this' here is inherited from enclosing scope (likely global or module)
+};
+
+// chai();
+
+
+// Arrow function concise syntax examples
+
+// const addTwo = (num1, num2) => {
+//     return num1 + num2;
+// };
+
+// const addTwo = (num1, num2) => num1 + num2;
+
+// const addTwo = (num1, num2) => (num1 + num2);
+
+// Returning object literal requires parentheses to avoid ambiguity
+const addTwo = (num1, num2) => ({ username: "hitesh" });
+
+console.log(addTwo(3, 4));  // { username: "hitesh" }
+
+
+// Array method example (forEach placeholder)
+// const myArray = [2, 5, 3, 7, 8];
+// myArray.forEach(item => console.log(item));
+
+
+/*
+===========================================================
+⚠️ Common Pitfalls:
+1. Arrow functions do NOT have their own 'this'; they use lexical 'this'.
+2. Regular functions' 'this' depends on how the function is called.
+3. Returning object literals in arrow functions requires parentheses.
+4. Be careful when using 'this' inside callbacks and methods.
+
+===========================================================
+
+💡 Mini Exercise:
+1. Create object methods using both regular and arrow functions; observe 'this'.
+2. Write arrow functions with single and multiple parameters.
+3. Return object literals from arrow functions.
+4. Use array methods like forEach with arrow functions for concise iteration.
+
+===========================================================
+End of Notes
+===========================================================
+*/
